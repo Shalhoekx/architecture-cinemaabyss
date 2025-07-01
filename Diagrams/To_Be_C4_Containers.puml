@@ -1,0 +1,57 @@
+@startuml to_be Cinema
+!include Templates/C4_Component.puml
+
+Person(User, "Пользователь", "Пользователь системы 'КиноБездна'")
+
+System_Boundary(Cinema, "Система 'КиноБездна'"){
+    Container_Boundary(Users, "API пользователей"){
+        Container(UsersAPI, "API пользователя", "REST Go", "API для данных о пользователях")
+        ContainerDb(UsersDB, "База данных", "Postgre", "Хранит информацию о пользователях")
+        Rel(UsersAPI, UsersDB, "Чтение\Запись", "SQL\TCP")
+    }
+
+    Container_Boundary(Paiments, "API платежей"){
+        Container(PaimentsAPI, "API платежей", "REST Go", "API для обработки платежей")
+        ContainerDb(PaimentsDB, "База данных", "Postgre", "Хранит информацию о платежах")
+        Rel(PaimentsAPI, PaimentsDB, "Чтение\Запись", "SQL\TCP")
+    }
+
+    Container_Boundary(Video, "API видео"){
+        Container(VideoAPI, "API видео", "REST Go", "API для стриминга")
+        ContainerDb(VideoDB, "Хранилище", "S3", "Хранит фильмы")
+        Rel(VideoAPI, VideoDB, "Чтение\Запись", "SQL\TCP")
+    }
+
+    Container_Boundary(Subscriptions, "API подписок"){
+        Container(SubscriptionsAPI, "API подписок", "REST Go", "API для подписок")
+        ContainerDb(SubscriptionsDB, "Хранилище", "Postgre", "Управляет подписками")
+        Rel(SubscriptionsAPI, SubscriptionsDB, "Чтение\Запись", "SQL\TCP")
+    }
+
+    Container(WebApp, "Web-приложение 'КиноБездна'", "React SPA", "Веб-приложение кинотеатра")
+    Container(SmartTVApp, "SmartTV-приложение 'КиноБездна'", "Xamarin", "Веб-приложение кинотеатра")
+    Container(MobileApp, "мобильное приложение 'КиноБездна'", "Xamarin", "Веб-приложение кинотеатра")
+
+    Rel(User, WebApp, "Работает в приложении", "HTTPS REST")
+    Rel(User, SmartTVApp, "Работает в приложении", "HTTPS REST")
+    Rel(User, MobileApp, "Работает в приложении", "HTTPS REST")
+
+    Container(Gateway, "Шлюз API")
+    Rel(WebApp, Gateway, "Взаимодействие с системой", "HTTPS REST")
+    Rel(SmartTVApp, Gateway, "Взаимодействие с системой", "HTTPS REST")
+    Rel(MobileApp, Gateway, "Взаимодействие с системой", "HTTPS REST")
+
+    Container(Proxy, "ReverseProxy", "Nginx", "HTTPS")
+    Rel(Gateway, Proxy, "Взаимодействие с системой", "HTTPS REST")
+    Rel(Proxy, Users, "Взаимодействие с системой", "HTTPS REST")
+    Rel(Proxy, Paiments, "Взаимодействие с системой", "HTTPS REST")
+    Rel(Proxy, Video, "Взаимодействие с системой", "HTTPS REST")
+    Rel(Proxy, Subscriptions, "Взаимодействие с системой", "HTTPS REST")
+
+    ContainerQueue(QueueMessageRecommends, "Брокер сообщений для рекомендаций", "RabbitMQ", "Rest API, HTTPS")
+    Rel(Subscriptions, QueueMessageRecommends, "Взаимодействие с внешним сервисом")
+    Rel(QueueMessageRecommends, Subscriptions, "Взаимодействие с внешним сервисом")
+}
+
+Container_Ext(Recommends, "Сервис рекомендаций", "Rest API")
+Rel(Recommends, QueueMessageRecommends, "Взаимодействие с внешней системой")
