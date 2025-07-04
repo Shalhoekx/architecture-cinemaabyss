@@ -46,6 +46,8 @@
    ```
 - Протестируйте постепенный переход, изменив переменную окружения MOVIES_MIGRATION_PERCENT в файле docker-compose.yml.
 
+![curl.png](Images\Task2\curl.png)
+![tests.png](Images\Task2\Tests.png)
 
 ### 2. Kafka
  Вам как архитектуру нужно также проверить гипотезу насколько просто реализовать применение Kafka в данной архитектуре.
@@ -58,6 +60,9 @@
 
 Необходимые тесты для проверки этого API вызываются при запуске npm run test:local из папки tests/postman 
 Приложите скриншот тестов и скриншот состояния топиков Kafka из UI http://localhost:8090 
+
+![kafka_tests.png](Images\Task2\Kafka_Tests.png)
+![kafkaTopics.png](Images\Task2\Kafka_Topics.png)
 
 # Задание 3
 

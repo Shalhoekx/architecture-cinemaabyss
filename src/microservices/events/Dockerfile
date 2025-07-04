@@ -14,10 +14,10 @@ RUN npm install --production
 COPY . .
 
 # Открываем порт прокси
-EXPOSE 8080
+EXPOSE 8082
 
 # Переменные окружения по умолчанию
-ENV PORT=8080
+ENV PORT=8082
 ENV TARGET=http://example.com
 
 # Запускаем приложение
