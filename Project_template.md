@@ -7,6 +7,8 @@
 Добавьте ссылку на файл в этот шаблон
 [Diagrams/To_Be_C4_Containers.puml](Diagrams/To_Be_C4_Containers.puml)
 
+![Diagram.png](Images/Task1.png)
+
 # Задание 2
 
 ### 1. Proxy
@@ -365,10 +367,10 @@ minikube tunnel
 https://cinemaabyss.example.com/api/movies
 и приложите скриншот развертывания helm и вывода https://cinemaabyss.example.com/api/movies
 
-Вызов Event - перехват в прокси:
+
 ![apiMovies.png](Images/Task4/apiMovies.png)
 
-Вызов Event - в самом сервисе:
+
 ![HelmDeploy.png](Images/Task4/HelmDeploy.png)
 
 ## Удаляем все
