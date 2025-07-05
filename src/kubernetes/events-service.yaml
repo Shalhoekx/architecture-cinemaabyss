@@ -27,9 +27,9 @@ spec:
         ports:
         - containerPort: 8082
         env:
-          - name: EVENTS_SERVICE__PORT
+          - name: PORT
             value: "8082"
-          - name: EVENTS_SERVICE__KAFKA_BROKERS
+          - name: KAFKA_BROKERS
             value: "kafka:9092"
         envFrom:
         - configMapRef:
@@ -38,7 +38,7 @@ spec:
             name: cinemaabyss-secrets
         resources:
           limits:
-            cpu: "300m"
+            cpu: "200m"
             memory: "256Mi"
           requests:
             cpu: "100m"

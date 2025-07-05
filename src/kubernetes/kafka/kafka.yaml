@@ -157,6 +157,10 @@ spec:
           value: "1"
         - name: KAFKA_LOG_DIRS
           value: "/kafka/kafka-logs"
+        - name: KAFKA_CFG_ZOOKEEPER_CONNECTION_TIMEOUT_MS
+          value: "60000"
+        - name: KAFKA_CFG_ZOOKEEPER_SESSION_TIMEOUT_MS
+          value: "60000"
         volumeMounts:
         - name: kafka-data
           mountPath: /kafka
