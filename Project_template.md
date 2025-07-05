@@ -46,8 +46,8 @@
    ```
 - Протестируйте постепенный переход, изменив переменную окружения MOVIES_MIGRATION_PERCENT в файле docker-compose.yml.
 
-![curl.png](Images\Task2\curl.png)
-![tests.png](Images\Task2\Tests.png)
+![curl.png](Images/Task2/curl.png)
+![tests.png](Images/Task2/Tests.png)
 
 ### 2. Kafka
  Вам как архитектуру нужно также проверить гипотезу насколько просто реализовать применение Kafka в данной архитектуре.
@@ -61,8 +61,8 @@
 Необходимые тесты для проверки этого API вызываются при запуске npm run test:local из папки tests/postman 
 Приложите скриншот тестов и скриншот состояния топиков Kafka из UI http://localhost:8090 
 
-![kafka_tests.png](Images\Task2\Kafka_Tests.png)
-![kafkaTopics.png](Images\Task2\Kafka_Topics.png)
+![kafka_tests.png](Images/Task2/Kafka_Tests.png)
+![kafkaTopics.png](Images/Task2/Kafka_Topics.png)
 
 # Задание 3
 
@@ -281,15 +281,15 @@ cat .docker/config.json | base64
 Добавьте сюда скриншота вывода при вызове https://cinemaabyss.example.com/api/movies и  скриншот вывода event-service после вызова тестов.
 
 Скриншот кубер подов
-![AllCuber.png](Images\Task3\AllCuber.png)
+![AllCuber.png](Images/Task3/AllCuber.png)
 Тесты
-![Tests.png](Images\Task3\Tests.png)
+![Tests.png](Images/Task3/Tests.png)
 
 Вызов Event - перехват в прокси:
-![GetMoviesProxy.png](Images\Task3\GetMoviesProxy.png)
+![GetMoviesProxy.png](Images/Task3/GetMoviesProxy.png)
 
 Вызов Event - в самом сервисе:
-![GetMoviesEndpoint.png](Images\Task3\GetMoviesEndpoint.png)
+![GetMoviesEndpoint.png](Images/Task3/GetMoviesEndpoint.png)
 
 # Задание 4
 Для простоты дальнейшего обновления и развертывания вам как архитектуру необходимо так же реализовать helm-чарты для прокси-сервиса и проверить работу 
@@ -366,10 +366,10 @@ https://cinemaabyss.example.com/api/movies
 и приложите скриншот развертывания helm и вывода https://cinemaabyss.example.com/api/movies
 
 Вызов Event - перехват в прокси:
-![apiMovies.png](Images\Task4\apiMovies.png)
+![apiMovies.png](Images/Task4/apiMovies.png)
 
 Вызов Event - в самом сервисе:
-![HelmDeploy.png](Images\Task4\HelmDeploy.png)
+![HelmDeploy.png](Images/Task4/HelmDeploy.png)
 
 ## Удаляем все
 
