@@ -365,6 +365,12 @@ minikube tunnel
 https://cinemaabyss.example.com/api/movies
 и приложите скриншот развертывания helm и вывода https://cinemaabyss.example.com/api/movies
 
+Вызов Event - перехват в прокси:
+![apiMovies.png](Images\Task4\apiMovies.png)
+
+Вызов Event - в самом сервисе:
+![HelmDeploy.png](Images\Task4\HelmDeploy.png)
+
 ## Удаляем все
 
 ```bash
