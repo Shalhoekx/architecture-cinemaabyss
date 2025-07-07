@@ -373,6 +373,10 @@ https://cinemaabyss.example.com/api/movies
 
 ![HelmDeploy.png](Images/Task4/HelmDeploy.png)
 
+Обновил секреты, поправил авторизацию
+
+![Fix.png](Images/Task4/Fix.png)
+
 ## Удаляем все
 
 ```bash
