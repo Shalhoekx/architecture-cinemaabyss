@@ -5,7 +5,9 @@
 1. Спроектируйте to be архитектуру КиноБездны, разделив всю систему на отдельные домены и организовав интеграционное взаимодействие и единую точку вызова сервисов.
 Результат представьте в виде контейнерной диаграммы в нотации С4.
 Добавьте ссылку на файл в этот шаблон
-[ссылка на файл](ссылка)
+[Diagrams/To_Be_C4_Containers.puml](Diagrams/To_Be_C4_Containers.puml)
+
+![Diagram.png](Images/Task1.png)
 
 # Задание 2
 
@@ -46,6 +48,8 @@
    ```
 - Протестируйте постепенный переход, изменив переменную окружения MOVIES_MIGRATION_PERCENT в файле docker-compose.yml.
 
+![curl.png](Images/Task2/curl.png)
+![tests.png](Images/Task2/Tests.png)
 
 ### 2. Kafka
  Вам как архитектуру нужно также проверить гипотезу насколько просто реализовать применение Kafka в данной архитектуре.
@@ -58,6 +62,9 @@
 
 Необходимые тесты для проверки этого API вызываются при запуске npm run test:local из папки tests/postman 
 Приложите скриншот тестов и скриншот состояния топиков Kafka из UI http://localhost:8090 
+
+![kafka_tests.png](Images/Task2/Kafka_Tests.png)
+![kafkaTopics.png](Images/Task2/Kafka_Topics.png)
 
 # Задание 3
 
@@ -275,6 +282,16 @@ cat .docker/config.json | base64
 #### Шаг 3
 Добавьте сюда скриншота вывода при вызове https://cinemaabyss.example.com/api/movies и  скриншот вывода event-service после вызова тестов.
 
+Скриншот кубер подов
+![AllCuber.png](Images/Task3/AllCuber.png)
+Тесты
+![Tests.png](Images/Task3/Tests.png)
+
+Вызов Event - перехват в прокси:
+![GetMoviesProxy.png](Images/Task3/GetMoviesProxy.png)
+
+Вызов Event - в самом сервисе:
+![GetMoviesEndpoint.png](Images/Task3/GetMoviesEndpoint.png)
 
 # Задание 4
 Для простоты дальнейшего обновления и развертывания вам как архитектуру необходимо так же реализовать helm-чарты для прокси-сервиса и проверить работу 
@@ -349,6 +366,16 @@ minikube tunnel
 Потом вызовите 
 https://cinemaabyss.example.com/api/movies
 и приложите скриншот развертывания helm и вывода https://cinemaabyss.example.com/api/movies
+
+
+![apiMovies.png](Images/Task4/apiMovies.png)
+
+
+![HelmDeploy.png](Images/Task4/HelmDeploy.png)
+
+Обновил секреты, поправил авторизацию
+
+![Fix.png](Images/Task4/Fix.png)
 
 ## Удаляем все
 
